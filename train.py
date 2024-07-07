@@ -55,7 +55,7 @@ if __name__ == '__main__':
     print("using {} device.".format(device))
 
     # dataset_root = "./SCP"
-    dataset_root = "./sample_data/SCP"
+    dataset_root = "./sample_data/SCP/food-101/images"
     dataset_filelists = []
     train_filelists = []
     test_fileliests = []
@@ -88,6 +88,7 @@ if __name__ == '__main__':
     train_dataset = DMIDataset(dataset_root=dataset_root, filelists = train_filelists, transforms=data_transform["train"], mode = 'train_' + train_name)
     valid_dataset = DMIDataset(dataset_root=dataset_root, filelists = valid_filelists, transforms=data_transform['test'], mode = 'valid_' + train_name)
     # print(train_dataset.__len__)
+    print(len(train_dataset))
     train_loader = torch.utils.data.DataLoader(train_dataset,
                                                batch_size=batch_size,
                                                shuffle=True,
